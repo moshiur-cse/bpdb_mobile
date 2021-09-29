@@ -25,14 +25,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         webView=findViewById(R.id.webviewId);
 
-/*        ConnectivityManager cm =
-                (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        boolean isConnected = activeNetwork != null &&
-                activeNetwork.isConnectedOrConnecting();
-        if(isConnected) {*/
-
 
         if(isOnline()) {
             webView();
@@ -50,12 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            /*alertDialogBuilder.setNeutralButton("No", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });*/
             AlertDialog alertDialog=alertDialogBuilder.create();
             alertDialog.show();
         }
@@ -87,13 +73,12 @@ public class MainActivity extends AppCompatActivity {
             alertDialog.show();
         }
     }
-
+    
     public  void webView(){
         WebSettings webSettings=webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("http://202.53.173.185/bpdb/");
-
+        webView.loadUrl("http://202.53.173.185/bpdb_mobile/");
     }
 
     public boolean isOnline() {
